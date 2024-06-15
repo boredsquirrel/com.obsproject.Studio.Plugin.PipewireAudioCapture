@@ -1,0 +1,47 @@
+id: com.obsproject.Studio.Plugin.PipewireAudioCapture
+branch: stable
+runtime: com.obsproject.Studio
+runtime-version: stable
+sdk: org.kde.Sdk//6.5
+build-extension: true
+separate-locales: false
+appstream-compose: false
+build-options:
+  prefix: /app/plugins/PipewireAudioCapture
+modules:
+  - name: opencv
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DBUILD_LIST=core,imgproc,objdetect
+    sources:
+      - type: git
+        url: https://github.com/opencv/opencv.git
+        tag: 4.5.4
+        commit: 4223495e6cd67011f86b8ecd9be1fa105018f3b1
+  - name: advanced-scene-switcher
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DLINUX_PORTABLE=OFF
+      - -DCMAKE_CXX_FLAGS="-Wno-error=stringop-overflow"
+    post-install:
+      - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ${FLATPAK_BUILDER_BUILDDIR}/${FLATPAK_ID}.metainfo.xml
+      - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak
+        ${FLATPAK_ID}
+    sources:
+      - type: git
+        url: https://github.com/dimtpap/obs-pipewire-audio-capture.git
+        tag: 1.1.4
+        commit: 0805939191532504903c80b2ae6560f9838cc27a
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
+      - type: file
+        path: com.obsproject.Studio.Plugin.PipewireAudioCapture.metainfo.xml
+cleanup:
+  - /include
+  - /share/opencv4
+  - /lib/cmake
+  - /bin

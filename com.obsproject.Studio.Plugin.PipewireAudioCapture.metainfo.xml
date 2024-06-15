@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>com.obsproject.Studio.Plugin.PipewireAudioCapture</id>
+  <extends>com.obsproject.Studio</extends>
+  <name>PipeWire audio capture</name>
+  <summary>Audio device and application capture for OBS Studio using PipeWire</summary>
+  <url type="homepage">https://github.com/dimtpap/obs-pipewire-audio-capture</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0</project_license>
+  <releases>
+    <release version="1.1.4" date="2024-02-20">
+      <description></description>
+  </releases>
+</component>
