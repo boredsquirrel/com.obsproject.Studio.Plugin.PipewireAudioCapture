@@ -19,7 +19,7 @@ modules:
         url: https://github.com/opencv/opencv.git
         tag: 4.5.4
         commit: 4223495e6cd67011f86b8ecd9be1fa105018f3b1
-  - name: advanced-scene-switcher
+  - name: pipewire-audio-capture
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
