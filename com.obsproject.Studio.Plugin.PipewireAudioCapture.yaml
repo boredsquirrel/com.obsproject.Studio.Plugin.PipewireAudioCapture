@@ -2,7 +2,7 @@ id: com.obsproject.Studio.Plugin.PipewireAudioCapture
 branch: stable
 runtime: com.obsproject.Studio
 runtime-version: stable
-sdk: org.kde.Sdk//6.5
+sdk: org.kde.Sdk//6.7
 build-extension: true
 separate-locales: false
 appstream-compose: false
@@ -33,8 +33,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/dimtpap/obs-pipewire-audio-capture.git
-        tag: 1.1.4
-        commit: 0805939191532504903c80b2ae6560f9838cc27a
+        tag: 1.1.5
+        commit: 7ec7adcf28b284e746b9acdcd14d390dfbaf566b
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
